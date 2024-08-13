@@ -1,0 +1,101 @@
+body {
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background: linear-gradient(to right, #ffafbd, #ffc3a0);
+    font-family: 'Arial', sans-serif;
+    text-align: center;
+    overflow: hidden; /* Para evitar barras de desplazamiento por el corazón en movimiento */
+}
+
+.container {
+    background: rgba(255, 255, 255, 0.8);
+    padding: 20px;
+    border-radius: 15px;
+    box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.2);
+    animation: fadeIn 2s ease-in-out;
+    position: relative;
+    z-index: 1;
+}
+
+h1 {
+    font-size: 2.5rem;
+    color: #e74c3c;
+    margin-bottom: 20px;
+    animation: fadeInText 3s ease-in-out infinite alternate;
+}
+
+p {
+    font-size: 1.5rem;
+    color: #34495e;
+    margin-bottom: 20px;
+}
+
+.proposal-buttons {
+    display: flex;
+    gap: 20px;
+    justify-content: center;
+}
+
+.proposal-btn {
+    padding: 15px 30px;
+    border: none;
+    border-radius: 50px;
+    font-size: 1.2rem;
+    cursor: pointer;
+    transition: all 0.3s ease-in-out;
+}
+
+.yes-btn {
+    background-color: #2ecc71; /* Verde para Sí */
+    color: white;
+}
+
+.yes-btn:hover {
+    background-color: #27ae60;
+    transform: scale(1.1);
+}
+
+.no-btn {
+    background-color: #e74c3c; /* Rojo para No */
+    color: white;
+}
+
+.no-btn:hover {
+    background-color: #c0392b;
+    transform: scale(1.1);
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes fadeInText {
+    0% { color: #e74c3c; }
+    100% { color: #f1c40f; }
+}
+
+/* Estilos para el corazón en movimiento */
+.heart {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 100px;
+    height: 100px;
+    background: url('heart.png') no-repeat center center;
+    background-size: contain;
+    animation: moveHeart 10s ease-in-out infinite;
+    z-index: 0;
+}
+
+@keyframes moveHeart {
+    0% { transform: translate(-50%, -50%) scale(1); }
+    25% { transform: translate(-50%, -60%) scale(1.2); }
+    50% { transform: translate(-50%, -50%) scale(1); }
+    75% { transform: translate(-50%, -40%) scale(1.2); }
+    100% { transform: translate(-50%, -50%) scale(1); }
+}
